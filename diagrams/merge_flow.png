@@ -1,1 +1,19 @@
-
+          Local Tasks        Remote Tasks
+                │                 │
+                └──────┬──────────┘
+                       │
+            Build all_task_ids (union)
+                       │
+            ┌──────────┴──────────┐
+            │ iterate each task   │
+            └──────────┬──────────┘
+                       │
+        ┌──────────────┼──────────────┐
+        │              │              │
+   local only     remote only     both exist
+        │              │              │
+create remote    create local   resolve conflict
+        │              │              │
+        └──────┬───────┴───────┬──────┘
+               │               │
+         merged_tasks + sync instructions
